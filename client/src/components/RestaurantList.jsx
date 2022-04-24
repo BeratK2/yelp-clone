@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, {useEffect, useContext} from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantsContext } from '../context/RestaurantsContext'
 
@@ -6,18 +6,18 @@ import { RestaurantsContext } from '../context/RestaurantsContext'
 const RestaurantList = (props) => {
     const {restaurants, setRestaurants} = useContext(RestaurantsContext);
 
-    useEffect(() => {
+    useEffect(async () => {
         const fetchData = async () => {
             try{
                 const response = await RestaurantFinder.get("/");
-                setRestaurants(response.data.data.restaurants);
-                console.log(response.data.data.restaurants);
+                setRestaurants(response.data.data.restaurants[0]);
+                console.log(response);
             }
             catch(err){}
-        };
+        }
 
         fetchData();
-
+    
     }, [])
   
     return (
