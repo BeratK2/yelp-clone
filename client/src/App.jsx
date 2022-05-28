@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 //Routes
 import Home from './routes/Home';
-import RestaurantDetail from './routes/RestaurantDetail';
-import UpdateRestaurant from './routes/UpdateRestaurant';
+import RestaurantDetailPage from './routes/RestaurantDetailPage';
+import UpdatePage from './routes/UpdatePage';
 
 //Context
 import { RestaurantsContextProvider } from './context/RestaurantsContext';
@@ -16,8 +16,8 @@ const App = () => {
                 <Router>
                     <Routes>
                         <Route exact path='/' element={<Home/>} />
-                        <Route exact path='/restaurants/:id/update' element={<UpdateRestaurant/>} />
-                        <Route exact path='/restaurants/:id' element={<RestaurantDetail/>} />
+                        <Route exact path='/restaurants/:id/update' element={<UpdatePage/>} />
+                        <Route exact path='/restaurants/:id' element={<RestaurantDetailPage/>} />
                     </Routes>
                 </Router>
             </div>
